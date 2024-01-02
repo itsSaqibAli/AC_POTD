@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int numIdenticalPairs(vector<int>& nums) {
+        unordered_map<int,int> mp;
+        for(auto &x : nums) {
+            mp[x]++;
+        }
+        int good_pairs = 0;
+        for(auto &y : mp)
+            good_pairs += (y.second * (y.second - 1))/2;
+        return good_pairs;
+    }
+};
