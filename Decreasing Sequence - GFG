@@ -1,0 +1,12 @@
+int minMoves(int a[], int n, int k)
+{
+   int M = 1e9 + 7, moves = 0;
+   for(int i=1; i<n; i++) {
+       if(a[i] > a[i-1]) {
+           int diff = a[i] - a[i-1] + k - 1;
+           a[i] -= (diff/k) * k;
+           moves = (moves + (diff/k))%M;
+       }
+   }
+   return moves;
+}
