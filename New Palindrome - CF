@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long T;
+    cin>>T; 
+    while(T--) {
+        string str;
+        cin>>str;
+        int len = str.length();
+        unordered_map<char,int> mp;
+        for(auto &x : str)
+            mp[x]++;
+        int max=0;
+        for(auto &y : mp)
+            if(y.second >max) max = y.second;
+        if(max >= len-1)
+            cout<<"NO"<<endl;
+        else
+            cout<<"YES"<<endl;
+    }
+    
+return 0;
+}
