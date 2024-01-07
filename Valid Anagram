@@ -1,0 +1,17 @@
+ class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        vector<int>Alpha1(256,0);
+        vector<int>Alpha2(256,0);
+
+        for(int i=0; i<s.length(); i++) {
+            Alpha1[s[i]]++;
+        }
+        for(int i=0; i<t.length(); i++) {
+            Alpha2[t[i]]++;
+        }
+
+        if(Alpha1==Alpha2) return 1;
+        return 0;
+    }
+};
