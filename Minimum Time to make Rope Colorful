@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int minCost(string colors, vector<int>& neededTime) {
+      //accumulate array k elements ka sum hai
+       int totalCost = 0, maxTime = neededTime[0], accumulate = neededTime[0];
+        //totalcost store krta hai sum of all max time taking ballons
+        //for ex - aaabaaccd | 314659123
+        // toh ye store krega sum = 4 + 6 + 9 + 2 + 3
+
+       char temp = colors[0];
+
+       for(int i=1; i<colors.length(); i++) {
+           if(colors[i] == temp) {
+               if(maxTime < neededTime[i])
+                        maxTime = neededTime[i];
+                temp = colors[i];
+           }
+           else {
+                totalCost += maxTime;
+                maxTime = neededTime[i];
+                temp = colors[i];
+           }
+           accumulate += neededTime[i];
+       }
+       return accumulate - totalCost - maxTime;
+        //maxTime isliye subtract kiya gaya kyunki in case loop ka last element max ho pr woh total cost m nhi add hopata toh totAL
+         // cost ko complete krne k liye isko usme add krenge
+    }
+};
