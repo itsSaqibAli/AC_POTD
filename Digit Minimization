@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+pair<int,int> countAndMin(int num) {
+    pair<int,int> p;
+    int min = INT_MAX, count = 0;
+    while(num != 0) {
+        int rem = num % 10;
+        if(rem < min) min =  rem;
+        count++;
+        num /= 10;
+    }
+    p.first = count;
+    p.second = min;
+    return p;
+}
+
+int main()
+{
+    long long T;
+    cin>>T; 
+    while(T--) {
+        int num;
+        cin>>num;
+        (countAndMin(num).first == 2) ? cout<<num%10<<endl : cout<<countAndMin(num).second<<endl;
+    }
+    
+return 0;
+}
