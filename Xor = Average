@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+//Instuition -
+//in case when input n is odd 
+//we can take same no. of elements n times like for n = 3, we can take
+// 7,7,7 or 2,2,2 because 7^7^7 == (7+7+7)/3
+
+//For Even come tricks
+//1 and 3 are two nums whose xor and avg are equal i.e
+// 1^3 ==(1+3)/2
+//therefore for n>2 and even, well take 1 , 3 and (n-2)times 2;
+// ex for n = 6
+// 1^3^2^2^2^2 == (1+3+2+2+2+2)/6
+int main()
+{
+    long long T;
+    cin>>T; 
+    while(T--) {
+        int num;
+        cin>>num;
+
+        if(num&1)
+            while(num--) cout<<"7 ";
+        else {
+            cout<<"1 3";
+            while(num-- != 2)
+                cout<<" 2";
+        }
+        cout<<endl;
+    }
+return 0;
+}
