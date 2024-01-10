@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long T;
+    cin>>T; 
+    while(T--) {
+        int k, len;
+        cin>>len>>k;
+        int permute[len];
+
+        for(int i=0; i<len; i++)
+            cin>>permute[i];
+
+       int order = 1, count = 0;
+       //order var is used to track the increasing order sequentially from 1 to n while traversing
+       // & count stores the total elements that follow sequential order
+       // it will auto increments in case that order value finds
+       // ex- it will always start from 1, & when it encounters 1 itll become 2 auto and so on
+
+       //       ex- array          5 4 1 3 2
+       //       here after 1 only 2 comes at last following the order
+       //       therefore only two elements follow order of 1-n i.e 1, 2 and count = 2.
+
+       for(int i=0; i<len; i++) {
+            if(permute[i] == order) {
+                order++;
+                count++;
+            }
+       }
+
+       //Now it confirms that len - count elements does not follow the seq order of 1-n.
+
+       int doesNotFollowOrder = len - count;
+
+       (doesNotFollowOrder % k !=0) ? cout<<doesNotFollowOrder/k+1<<endl : cout<<doesNotFollowOrder/k<<endl;
+
+    }
+    
+return 0;
+}
