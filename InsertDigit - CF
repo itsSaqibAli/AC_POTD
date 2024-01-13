@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long T;
+    cin>>T;
+    while(T--) {
+        int len, k, i;
+        cin>>len>>k;
+        string S;
+        cin>>S;
+        for(i=0; i<len; i++) {
+            if(k > S[i]-48)
+                break;
+        }
+        string ans;
+        if(i == len) {
+            S+=k+48;
+            cout<<S<<endl;
+        }
+        else {
+            for(int j=0; j<len; j++) {
+                if(i == j) {
+                    ans += (k+48);
+                    i=INT_MIN;
+                    
+                }
+                ans += S[j];
+            }
+            cout<<ans<<endl;
+        }
+    }
+
+return 0;
+}
