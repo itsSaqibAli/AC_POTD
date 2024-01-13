@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long T;
+    cin>>T;
+    while(T--) {
+        int n;
+        cin>>n;
+        vector<int> arr(n);
+        for(int i=0; i<n; i++)
+            cin>>arr[i];
+
+        int cnt = 0;
+        for(int i=0; i<n; i++) 
+            if(arr[i]%2 == 0) 
+                cnt++;
+        
+        (cnt&1) ? cout<<"errorgorn"<<endl : cout<<"maomao90"<<endl;
+    }
+
+return 0;
+}
