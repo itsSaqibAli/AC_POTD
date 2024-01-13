@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<long long> maxmin(vector<int> &arr, int size) {
+    int max = arr[0], min = arr[0], smax = INT_MIN, smin = INT_MAX;
+    vector<long long> V(4);
+    for(int i=1; i<size; i++) {
+        if(arr[i] > max) {
+            smax = max;
+            max = arr[i];
+        }
+        else if(arr[i] > smax && arr[i] <= max)
+            smax = arr[i];
+
+        if(arr[i] < min) {
+            smin = min;
+            min = arr[i];
+        }
+        else if(arr[i] < smin && arr[i] >= min)
+            smin = arr[i];
+    }
+    V[0]=max, V[1]=smax, V[2]=min, V[3]=smin;
+    return V;
+}
+
+int main()
+{
+    long long T;
+    cin>>T; 
+    while(T--) {
+        int size;
+        cin>>size;
+        int a;
+        vector<int> V;
+        for(int i=0; i<size; i++) {
+            cin>>a;
+            V.push_back(a);
+        }
+        long long maxies = maxmin(V,size)[0] * maxmin(V,size)[1];
+        long long minnies = maxmin(V,size)[2] * maxmin(V,size)[3];
+
+        (maxies > minnies) ? cout<<maxies<<endl : cout<<minnies<<endl;
+    }
+return 0;
+}
