@@ -1,0 +1,15 @@
+class Solution {
+public:
+    vector<int> diStringMatch(string s) {
+        int n = s.length();
+        int last = n, start = 0;
+
+        vector<int> perm(n+1);
+        for(int i=0; i<n; i++) {
+            if(s[i] == 'I') perm[i] = start++;
+            else            perm[i] = last--;        
+        }
+        (s[n-1] == 'I') ? perm[n]=perm[n-1]+1 : perm[n]=perm[n-1]-1;
+        return perm;
+    }
+};
