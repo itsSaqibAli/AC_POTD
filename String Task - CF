@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool isVowel(char ch) {
+    if(ch=='a'||ch=='e'||ch=='y'||ch=='i'||ch=='o'||ch=='u'||ch=='A'||ch=='E'||ch=='Y'||ch=='I'||ch=='O'||ch=='U')
+        return true;
+    return false;
+}
+
+int main()
+{
+    string s;
+    cin>>s;
+
+    string coded;
+    for(auto x : s) {
+        if(!isVowel(x)) {
+            coded += '.';
+            if(isupper(x))  coded += tolower(x);
+            else            coded += x;
+        }
+    }
+
+    cout<<coded<<endl;
+
+return 0;
+}
